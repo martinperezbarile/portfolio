@@ -1,0 +1,136 @@
+header {
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    font-family: 'Fira Code';
+    overflow: hidden;
+    position: relative;
+
+}
+
+.custom-text {
+    color: #212529;
+}
+
+.custom-text.light-mode {
+    color: #212529;
+}
+
+.custom-text.dark-mode {
+    color: #e0e0e0;
+}
+
+.animation-header {
+    display: flex;
+    animation: scrollText 15s linear infinite;
+}
+
+.animation-header p {
+    white-space: nowrap;
+    margin: 0 4px;
+    font-size: 16px;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+footer {
+    width: 100%;
+    height: 56px;
+    line-height: 56px;
+    font-family: 'Fira Code';
+    overflow: hidden;
+    position: relative;
+}
+
+.toggle-checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.toggle-slot {
+    position: relative;
+    height: 25px;
+    width: 50px;
+    border: 1.5px solid #e4e7ec;
+    border-radius: 30px;
+    background-color: white;
+    transition: background-color 250ms;
+    border: 1px solid black;
+}
+
+.toggle-checkbox:checked~.toggle-slot {
+    background-color: black;
+    border: 1px solid black;
+}
+
+.toggle-button {
+    transform: translate(28px, 4.5px);
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: inset 0px 0px 0px 1px black;
+    transition: background-color 250ms, border-color 250ms, transform 500ms cubic-bezier(.26, 2, .46, .71);
+}
+
+.toggle-checkbox:checked~.toggle-slot .toggle-button {
+    background-color: black;
+    box-shadow: inset 0px 0px 0px 1px white;
+    transform: translate(4.5px, 4.5px);
+}
+
+.sun-icon {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    color: black;
+}
+
+.sun-icon-wrapper {
+    position: absolute;
+    height: 15px;
+    width: 10px;
+    opacity: 1;
+    transform: translate(5px, 4px) rotate(15deg);
+    transform-origin: 50% 50%;
+    transition: opacity 150ms, transform 500ms cubic-bezier(.26, 2, .46, .71);
+}
+
+.toggle-checkbox:checked~.toggle-slot .sun-icon-wrapper {
+    opacity: 0;
+    transform: translate(4.5px, 3px) rotate(0deg);
+}
+
+.moon-icon {
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    color: white;
+}
+
+.moon-icon-wrapper {
+    position: absolute;
+    height: 15px;
+    width: 25px;
+    opacity: 0;
+    transform: translate(24.75px, 3px) rotate(0deg);
+    transform-origin: 50% 50%;
+    transition: opacity 150ms, transform 500ms cubic-bezier(.26, 2.5, .46, .71);
+}
+
+.toggle-checkbox:checked~.toggle-slot .moon-icon-wrapper {
+    opacity: 1;
+    transform: translate(27px, 3px) rotate(-15deg);
+}
